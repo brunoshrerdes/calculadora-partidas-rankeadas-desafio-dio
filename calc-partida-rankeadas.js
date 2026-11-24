@@ -1,0 +1,1 @@
+Testando arquivo de partidas rankeadas
