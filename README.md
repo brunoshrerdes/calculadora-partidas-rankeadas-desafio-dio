@@ -1,4 +1,4 @@
-# Desafio Criando Uma Calculadora de Partidas Rankeadas
+# Desafio: Criando Uma Calculadora de Partidas Rankeadas Em JavaScript
 # Em Parceria Com a Digital Innovation One (DIO)
 
 **Detalhes do desafio:**

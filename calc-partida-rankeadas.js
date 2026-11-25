@@ -3,35 +3,45 @@ import { stdin as input, stdout as output } from "node:process";
 
 const rl = readline.createInterface({ input, output });
 
-let vitoria = await rl.question("Digite o numero de vitórias: ");
-let derrota = await rl.question("Digite o numero de derrotas: ");
-let saldoVitorias = vitoria - derrota;
-let nivel;
+let opcao = await rl.question("Deseja calcular o Rank do seu Heroi?\n1 - Sim\n2 - Não\nDigite o numero da opção desejada: ");
 
-switch (true) {
-  case saldoVitorias < 10:
-    nivel = "Ferro";
+while (opcao === "1") {
+
+    let vitoria = await rl.question("Digite o numero de vitórias: ");
+    let derrota = await rl.question("Digite o numero de derrotas: ");
+    let saldoVitorias = vitoria - derrota;
+    let nivelHeroi;
+    calcularRank(nivelHeroi);
+
+  async function calcularRank(nivelHeroi) {
+
+    switch (true) {
+  case saldoVitorias <= 10:
+    nivelHeroi = "Ferro";
     break;
-  case saldoVitorias >= 10 && saldoVitorias <= 20:
-    nivel = "Bronze";
+  case saldoVitorias >= 11 && saldoVitorias <= 20:
+    nivelHeroi = "Bronze";
     break;
   case saldoVitorias >= 21 && saldoVitorias <= 50:
-    nivel = "Prata";
+    nivelHeroi = "Prata";
     break;
   case saldoVitorias >= 51 && saldoVitorias <= 80:
-    nivel = "Ouro";
+    nivelHeroi = "Ouro";
     break;
   case saldoVitorias >= 81 && saldoVitorias <= 90:
-    nivel = "Diamante";
+    nivelHeroi = "Diamante";
     break;
   case saldoVitorias >= 91 && saldoVitorias <= 100:
-    nivel = "Lendário";
+    nivelHeroi = "Lendário";
     break;
   default:
-    nivel = "Imortal";
+    nivelHeroi = "Imortal";
     break;
+    }
+    console.log("O Herói tem o saldo de vitórias de " + saldoVitorias + " e está no nível de " + nivelHeroi);
+    } 
+  opcao = await rl.question("Deseja calcular o Rank do seu Heroi novamente?\n1 - Sim\n2 - Não\nDigite o numero da opção desejada: ");
 }
-
-console.log("O Herói tem de saldo de " + saldoVitorias + " e está no nível de " + nivel);
+    console.log("Obrigado por utilizar o sistema de cálculo de Rank do seu Heroi!");
 
 rl.close();
